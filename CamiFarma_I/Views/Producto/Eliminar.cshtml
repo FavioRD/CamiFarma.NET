@@ -1,0 +1,19 @@
+﻿@model CamiFarma_I.Models.Producto
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<h2>Eliminar Producto</h2>
+
+<h4>¿Estás seguro de que quieres eliminar este producto?</h4>
+<div>
+    <strong>@Model.Nombre</strong> - @Model.Descripcion
+</div>
+
+<form asp-action="EliminarConfirmado" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
