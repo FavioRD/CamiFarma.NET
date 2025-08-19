@@ -21,6 +21,7 @@ builder.Services.AddDbContext<FarmaciaContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped<ProductoService>();
+builder.Services.AddScoped<SalidaService>();
 
 var app = builder.Build();
 

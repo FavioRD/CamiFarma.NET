@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Registrar Salida";
+    var productos = ViewBag.Productos as List<CamiFarma_I.Models.Producto>;
+}
+
+<h2>Registrar Salida</h2>
+
+<form asp-action="Registrar" method="post">
+    <div class="form-group">
+        <label>Producto</label>
+        <select name="productoId" class="form-control">
+            @foreach (var p in productos)
+            {
+                <option value="@p.Id">@p.Nombre (Stock: @p.Stock)</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Cantidad</label>
+        <input type="number" name="cantidad" class="form-control" min="1" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Registrar</button>
+</form>
+
+<!-- Mensajes de error o éxito -->
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger mt-2">@TempData["Error"]</div>
+}
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success mt-2">@TempData["Mensaje"]</div>
+}
+
+<!-- Botón para volver al inicio -->
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-3">Volver al inicio</a>

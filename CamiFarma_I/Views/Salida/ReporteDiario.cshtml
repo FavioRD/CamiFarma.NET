@@ -1,0 +1,24 @@
+﻿@model List<CamiFarma_I.Models.SalidaReporte>
+
+<h2>Reporte Diario de Salidas</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreProducto</td>
+                <td>@item.Cantidad</td>
+                <td>@item.Fecha.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-3">Volver al inicio</a>

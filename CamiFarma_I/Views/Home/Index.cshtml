@@ -2,37 +2,68 @@
     ViewData["Title"] = "Página Principal";
 }
 
-<div class="container mt-4">
-    <div class="text-center">
-        <h1 class="display-4 mb-4">Bienvenido a la CamiFarma</h1>
-        <p class="lead">Gestiona tus productos y consulta el inventario fácilmente.</p>
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary fw-bold">Bienvenido a CamiFarma</h1>
+        <p class="lead text-muted">Sistema de control de inventario para tu farmacia</p>
     </div>
 
-    <div class="row justify-content-center mt-5">
-        <!-- Card para Productos -->
+    <div class="row g-4">
+        <!-- Módulo Productos -->
         <div class="col-md-4">
-            <div class="card shadow-sm border-0">
+            <div class="card shadow-lg border-0 h-100 module-card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Productos</h5>
-                    <p class="card-text">Consulta, agrega o edita los productos disponibles en la farmacia.</p>
-                    <a href="@Url.Action("Index", "Producto")" class="btn btn-primary">
-                        Ver Lista de Productos
+                    <i class="bi bi-box-seam display-4 text-primary mb-3"></i>
+                    <h5 class="card-title fw-bold">Productos</h5>
+                    <p class="card-text text-muted">Consulta, agrega o edita los productos del inventario.</p>
+                    <a href="@Url.Action("Index", "Producto")" class="btn btn-outline-primary">
+                        Ver Productos
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Card para otra funcionalidad futura -->
+        <!-- Módulo Salidas -->
         <div class="col-md-4">
-            <div class="card shadow-sm border-0">
+            <div class="card shadow-lg border-0 h-100 module-card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Reportes</h5>
-                    <p class="card-text">Genera reportes de stock (próximamente).</p>
-                    <a href="#" class="btn btn-secondary disabled">
-                        Ver Reportes
+                    <i class="bi bi-arrow-up-right-circle display-4 text-success mb-3"></i>
+                    <h5 class="card-title fw-bold">Salidas</h5>
+                    <p class="card-text text-muted">Registra y controla las salidas de productos.</p>
+                    <a href="@Url.Action("Registrar", "Salida")" class="btn btn-outline-success">
+                        Registrar Salida
+                    </a>
+                    <a href="@Url.Action("ReporteDiario", "Salida")" class="btn btn-outline-secondary mt-2">
+                        Reporte Diario
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Módulo Reportes -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 h-100 module-card">
+                <div class="card-body text-center">
+                    <i class="bi bi-clipboard-data display-4 text-warning mb-3"></i>
+                    <h5 class="card-title fw-bold">Reportes</h5>
+                    <p class="card-text text-muted">Genera reportes de stock y movimientos.</p>
+                    <a href="#" class="btn btn-outline-warning disabled">
+                        Próximamente
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .module-card {
+        transition: transform 0.2s ease-in-out;
+        border-radius: 15px;
+    }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+</style>
